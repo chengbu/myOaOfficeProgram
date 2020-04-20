@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 定义模板 -->
+	<definition name="frontTemplate" template="/WEB-INF/jsp/shared/front-template.jsp"/>
+		
+	<definition name="index" extends="frontTemplate">
+		<put-attribute name="title" value="首页"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/index.jsp"/>
+	</definition>
+	
+	<definition name="date" extends="frontTemplate">
+		<put-attribute name="title" value="定制会议页"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/date.jsp"/>
+	</definition>
+
+	<definition name="date-endit" extends="frontTemplate">
+	<put-attribute name="title" value="日程页"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/date-endit.jsp"/>
+	</definition>
+	<definition name="datelogin" extends="frontTemplate">
+		<put-attribute name="title" value="日期登录页"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/datelogin.jsp"/>
+	</definition>
+	
+	<definition name="user-add" extends="frontTemplate">
+		<put-attribute name="title" value="员工添加"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/user-add.jsp"/>
+	</definition>
+	
+	<definition name="user-info" extends="frontTemplate">
+		<put-attribute name="title" value="员工信息"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/user-info.jsp"/>
+	</definition>
+	
+	<definition name="user-code" extends="frontTemplate">
+		<put-attribute name="title" value="密码修改"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/user-code.jsp"/>
+	</definition>
+	
+	<definition name="user-list" extends="frontTemplate">
+		<put-attribute name="title" value="员工列表"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/user-list.jsp"/>
+	</definition>
+	
+	<definition name="permission" extends="frontTemplate">
+		<put-attribute name="title" value="员工权限"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/permission.jsp"/>
+	</definition>
+	
+	<definition name="user-role" extends="frontTemplate">
+		<put-attribute name="title" value="员工角色"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/user-role.jsp"/>
+	</definition>
+	<definition name="email-write" extends="frontTemplate">
+		<put-attribute name="title" value="写邮件"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/email-write.jsp"/>
+	</definition>
+	<definition name="folder-files" extends="frontTemplate">
+		<put-attribute name="title" value="文件夹和文件"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/folder-files.jsp"/>
+	</definition>
+	<definition name="email-putList" extends="frontTemplate">
+		<put-attribute name="title" value="收件箱"/>  
+		<put-attribute name="main" value="/WEB-INF/jsp/email-putList.jsp"/>
+	</definition>
+	<definition name="email-statusList" extends="frontTemplate">
+		<put-attribute name="title" value="状态邮件的检索"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/email-statusList.jsp"/>
+	</definition>
+
+
+</tiles-definitions>

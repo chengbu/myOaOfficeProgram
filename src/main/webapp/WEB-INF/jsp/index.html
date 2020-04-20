@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>首页</title>
+	<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="static/layui/css/layui.css"  media="all">
+  <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script src="static/layui/layui.js"></script>
+	<script>
+			layui.use('element', function(){
+			  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+			  
+			  //监听导航点击
+			  element.on('nav(demo)', function(elem){
+				//console.log(elem)
+				layer.msg(elem.text());
+			  });
+			});
+			</script>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <div class="layui-logo">oa办公管理控制台</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+          <li class="layui-nav-item"><a href="index.html">控制台</a></li>
+          <li class="layui-nav-item"><a href="">商品管理</a></li>
+          <li class="layui-nav-item"><a href="">用户</a></li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">其它系统</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">邮件管理</a></dd>
+              <dd><a href="">消息管理</a></dd>
+              <dd><a href="">授权管理</a></dd>
+            </dl>
+          </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item">
+            <a href="javascript:;">
+              <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+              贤心
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="">基本资料</a></dd>
+              <dd><a href="">安全设置</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+      </div>
+      
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="javascript:;">组织管理功能</a>
+              <dl class="layui-nav-child">
+                <dd><a href="user-list.html">员工检索</a></dd>
+				<dd><a href="user-add.html">添加员工</a></dd>
+				<dd><a href="department-add.html">添加部门</a></dd>
+				<dd><a href="department-list.html">部门列表</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">公告管理</a>
+              <dl class="layui-nav-child">
+                <dd><a href="noticeApprove.html">公告审批</a></dd>
+                <dd><a href="noticeApply.html">公告申请</a></dd>
+                
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">文件夹</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">回收站</a></dd>
+                  <dd><a href="">操作文件夹</a></dd>
+                  
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">权限角色功能</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="userRoleSet.html">编辑角色</a></dd>
+                  <dd><a href="role-add.html">增加角色</a></dd>
+                 
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">日程管理</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">邮件功能</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+              <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                  <li class="layui-this">收件箱</li>
+                  <li>未读邮件</li>
+                  <li>重要邮件</li>
+                 
+                </ul>
+                <div class="layui-tab-content">
+                  <div class="layui-tab-item layui-show">
+                    <table class="layui-table" lay-size="sm">
+                        <colgroup>
+                            <col>
+                            <col width="100">
+                            <col width="300">
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>标题</th>
+                            <th>收件人</th>
+                            <th>发送时间</th>
+                          </tr> 
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>人生就像是一场修行</td>
+                            <td>贤心</td>
+                            <td>2016-11-29</td>
+                          </tr>
+                          <tr>
+                            <td>于千万人之中遇见你所遇见的人</td>
+                            <td>许闲</td>
+                            <td>2016-11-28</td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+                  </div>
+                  <div class="layui-tab-item">2</div>
+                  <div class="layui-tab-item">3</div>
+                  <div class="layui-tab-item">4</div>
+                 
+                </div>
+              </div>
+
+              <div style="padding: 20px; background-color: #F2F2F2;">
+                <div class="layui-row layui-col-space15">
+                  <div class="layui-col-md6">
+                    <div class="layui-card">
+                     
+                      <div class="layui-card-body">
+                        <div class="layui-tab layui-tab-card">
+                            <ul class="layui-tab-title">
+                              <li class="layui-this">公告</li>
+                              <li>所属部门公告</li>
+                             
+                             
+                            </ul>
+                            <div class="layui-tab-content">
+                              <div class="layui-tab-item layui-show">
+                                <table class="layui-table" lay-size="sm">
+                                    <colgroup>
+                                        
+                                        <col width="100">
+                                        <col width="100">
+                                    </colgroup>
+                                    <thead>
+                                      <tr>
+                                        <th>主题</th>
+                                        <th>发布时间</th>
+                                     
+                                      </tr> 
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                       
+                                        <td>贤心</td>
+                                        <td>2016-11-29</td>
+                                      </tr>
+                                      <tr>
+                                      
+                                        <td>许闲</td>
+                                        <td>2016-11-28</td>
+                                      </tr>
+                                     
+                                    </tbody>
+                                  </table>
+                              </div>
+                              <div class="layui-tab-item">2</div>
+                              <div class="layui-tab-item">3</div>
+                              <div class="layui-tab-item">4</div>
+                             
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-col-md6">
+                    <div class="layui-card">
+                     
+                      <div class="layui-card-body">
+                        <div class="layui-tab layui-tab-card">
+                            <ul class="layui-tab-title">
+                              <li class="layui-this">会议</li>
+                              <li>今天日程</li>
+                              <li>个人日程</li>
+                             
+                            </ul>
+                            <div class="layui-tab-content">
+                              <div class="layui-tab-item layui-show">
+                                <table class="layui-table" lay-size="sm">
+                                    <colgroup>
+                                        <col>
+                                        <col width="80">
+                                        <col width="80">
+                                    </colgroup>
+                                    <thead>
+                                      <tr>
+                                        <th>标题</th>
+                                        <th>开始时间</th>
+                                        <th>结束时间</th>
+                                      </tr> 
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>人生就像是一场修行</td>
+                                        <td>2016-11-29</td>
+                                        <td>2016-11-29</td>
+                                      </tr>
+                                      <tr>
+                                        <td>于千万人之中遇见你所遇见的人</td>
+                                        <td>2016-11-29</td>
+                                        <td>2016-11-28</td>
+                                      </tr>
+                                     
+                                    </tbody>
+                                  </table>
+                              </div>
+                              <div class="layui-tab-item">2</div>
+                              <div class="layui-tab-item">3</div>
+                              <div class="layui-tab-item">4</div>
+                             
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-col-md12">
+                    <div class="layui-card">
+                      <div class="layui-card-header">标题</div>
+                      <div class="layui-card-body">
+                        内容
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              
+        </div>
+      </div>
+      
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+      </div>
+    </div>
+    <script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+      var element = layui.element;
+      
+    });
+    </script>
+    </body>
+    </html>

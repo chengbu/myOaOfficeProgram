@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oademo.mapper.ScheduleMapper">
+
+   <select id="getAll" resultType="Schedule">
+		SELECT *FROM Schedule
+	</select>
+ 
+ <sql id="Schedulesql">
+ SELECT SCHEDULE.*,User.`username` FROM SCHEDULE JOIN USER ON User.`id`=SCHEDULE.`creatorId`
+ </sql>
+
+	<select id="findAll" resultType="Schedule">
+	<include refid="Schedulesql"/>		
+	</select>
+	
+
+	<select id="findById" parameterType="int" resultType="Schedule">
+		<include refid="Schedulesql"/>	
+		where Schedule.id=#{id}
+	</select>
+
+	<select id="findByIdTitle" resultType="Schedule">
+		<include refid="Schedulesql"/>
+		<where>
+			<if test="id>0">
+				and id=#{id}
+			</if>
+			<if test="title !=null and title!='' ">
+				and title like concat('%',#{title},'%')
+			</if>
+		</where>
+		limit #{skips},#{size}
+	</select>
+
+	<insert id="add">
+		INSERT INTO schedule
+		(title,description,typeInt,startTime,endTime,address,creatorId,createTime)
+		VALUES
+		(#{title},#{description},#{typeInt},#{startTime},#{endTime},#{address},#{creatorId},#{createTime}
+		) ;
+	</insert>
+
+	<update id="update">
+		UPDATE
+		schedule
+		SET
+		title = #{title},
+		description =
+		#{description},
+		typeInt = #{typeInt},
+		startTime = #{startTime},
+		endTime =
+		#{endTime},
+		address = #{address},
+		creatorId = #{creatorId},
+		createTime =
+		#{createTime}
+		WHERE id = #{id};
+	</update>
+    
+    <delete id="delete" parameterType="int">
+        DELETE FROM schedule WHERE id = #{id} ;
+    </delete>
+    
+    <select id="fetchscheduleRows" resultType="int">
+		select count(id) from schedule 
+		<where>
+			<if test="id>0">
+				and id = #{id}
+			</if>
+			<if test="title!=null and title!=''">
+				and title like CONCAT('%',#{title},'%')
+			</if>
+		</where>
+	</select>
+</mapper>

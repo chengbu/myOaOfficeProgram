@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>首页</title>
+	<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="static/layui/css/layui.css"  media="all">
+  <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script src="static/layui/layui.js"></script>
+	<script>
+			layui.use('element', function(){
+			  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+			  
+			  //监听导航点击
+			  element.on('nav(demo)', function(elem){
+				//console.log(elem)
+				layer.msg(elem.text());
+			  });
+			});
+			</script>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <div class="layui-logo">oa办公管理控制台</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+          <li class="layui-nav-item"><a href="index.html">控制台</a></li>
+          <li class="layui-nav-item"><a href="">商品管理</a></li>
+          <li class="layui-nav-item"><a href="">用户</a></li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">其它系统</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">邮件管理</a></dd>
+              <dd><a href="">消息管理</a></dd>
+              <dd><a href="">授权管理</a></dd>
+            </dl>
+          </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item">
+            <a href="javascript:;">
+              <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+              贤心
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="">基本资料</a></dd>
+              <dd><a href="">安全设置</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+      </div>
+      
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="javascript:;">组织管理功能</a>
+              <dl class="layui-nav-child">
+                <dd><a href="user-list.html">员工检索</a></dd>
+				<dd><a href="userEdit.html">添加员工</a></dd>
+				<dd><a href="javascript:;">添加部门</a></dd>
+				<dd><a href="javascript:;">部门列表</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">公告管理</a>
+              <dl class="layui-nav-child">
+                <dd><a href="">移动模块</a></dd>
+                <dd><a href="">后台模版</a></dd>
+                <dd><a href="">电商平台</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">文件夹</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">权限角色功能</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">日程管理</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item">
+                <a href="javascript:;">邮件功能</a>
+                <dl class="layui-nav-child">
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                  <dd><a href="">******</a></dd>
+                </dl>
+              </li>
+          </ul>
+        </div>
+      </div>
+      <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>默认风格的Tab</legend>
+          </fieldset>
+           
+      <div class="layui-body">
+           <h3 style="text-align:center;">公告审批</h3>
+<div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+          <div class="layui-col-md12">
+            <div class="layui-card">
+              <div class="layui-card-header">需要审核的公告</div>
+              <div class="layui-card-body">
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-radius">放假安排</button>&nbsp;
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-radius">所有部门注意了</button>&nbsp;
+                
+                
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md6">
+                <div class="layui-card">
+                  <div class="layui-card-header">通过</div>
+                  <div class="layui-card-body">
+                        <button type="button" class="layui-btn layui-btn-radius">加工资</button>&nbsp;
+                
+                  </div>
+                </div>
+              </div>
+          <div class="layui-col-md6">
+            <div class="layui-card">
+              <div class="layui-card-header">不通过</div>
+              <div class="layui-card-body">
+                    <button type="button" class="layui-btn layui-btn-disabled layui-btn-radius">8点下班！</button>&nbsp;
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div> 
+                
+    </div>
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        ©- 底部固定区域
+      </div>
+    </div>
+
+    <script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+      var element = layui.element;
+      
+    });
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,31 @@
+#xs5{
+    margin-left: 20px
+}
+.layui-layout-body input{
+    border-radius:9px;
+}
+#inputEmail{
+    width: 172px;
+}
+img{
+    width: 30px;
+}
+#inputxs8 {
+    border: 0.1px dashed cyan;   
+    line-height: 1;
+}
+#inputxs8-il{
+    margin-left: 30px;
+    height: 366px;
+    OVERFLOW-y: scroll
+    
+}
+.btn{
+    background-color: cyan;
+}
+#textarea-text{
+    border-radius: 9px;
+    /* OVERFLOW-y: scroll */
+}
+
+

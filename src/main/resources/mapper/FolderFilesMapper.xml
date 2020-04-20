@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oademo.mapper.FolderFilesMapper">
+
+<select id="findAllFolders" resultType="FolderFiles">
+	select f.*,u.username from folderfiles f left join user u on
+	f.creatorId=u.id where f.type='folder'
+</select>
+
+<select id="findFolderFilesByName" resultType="FolderFiles">
+	select f.*,u.username from folderfiles f left join user u on
+	f.creatorId=u.id  where type="files"
+	<if test="name!=null and name!=''">
+		and f.name like concat("%",#{name},"%")
+	</if>
+	limit #{startRow},#{maxRows}
+</select>
+
+<select id="findFolderFilesByFolder" parameterType="int" resultType="FolderFiles">
+	select f.*,u.username from folderfiles f left join user u on
+	f.creatorId=u.id where f.parentId=#{folderId}
+</select>
+
+<select id="findFolderFilesByPages" resultType="FolderFiles">
+	select f.*,u.username from folderfiles f left join user u on
+	f.creatorId=u.id 
+	<where>
+	<if test="folderId>0">
+		and f.parentId=#{folderId}
+	</if>
+	<if test="name!=null and name!=''">
+		and f.name like concat('%',#{name},'%')
+	</if>
+	</where>
+	limit #{startRow},#{maxRows}
+</select>
+
+<select id="findTotalRows" resultType="int">
+	select count(f.id) from folderfiles f where f.parentId=#{folderId}
+	<if test="name!=null and name!=''">
+		and f.name like concat("%",#{name},"%")
+	</if>
+</select>
+
+<select id="findTotalRowsName" resultType="int">
+	select count(f.id) from folderfiles f where type="files"
+	<if test="name!=null and name!=''">
+		and f.name like concat("%",#{name},"%")
+	</if>
+</select>
+
+<select id="findParentId" resultType="FolderFiles">
+	select f.*,u.username from folderfiles f inner join user u on f.creatorId=u.id where f.id=#{folderId}
+</select>
+<update id="updateFolderFilesName">
+	update folderFiles set name=#{name} where id=#{id}
+</update>
+<select id="findFolderName" resultType="String">
+	select f.name from folderfiles f where f.name=#{name}
+</select>
+<insert id="insertFolder">
+	insert into folderfiles values(0,#{name},#{description},#{type},#{fileUrl},#{creatorId},now(),#{parentId},1,#{size})
+</insert>
+<delete id="deleteFolder" >
+	delete from folderfiles where id=#{id}
+</delete>
+<select id="findChildren" resultType="FolderFiles">
+	select * from folderfiles where parentId=#{id} 
+</select>
+<select id="findFolderFilesOne" resultType="FolderFiles">
+	select * from folderfiles where id=#{id} 
+</select>
+
+</mapper>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>日程</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../jsp/static/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../jsp/static/jscss/data.css" media="all">
+  <link href="../jsp/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <script src="../jsp/static/layui/layui.js"></script>
+  
+  <script>
+			layui.use('element', function(){
+			  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+			  
+			  //监听导航点击
+			  element.on('nav(demo)', function(elem){
+				//console.log(elem)
+				layer.msg(elem.text());
+			  });
+			});
+  </script>
+</head>
+
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+      <div class="layui-logo">oa办公管理控制台</div>
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="">控制台</a></li>
+        <li class="layui-nav-item"><a href="">商品管理</a></li>
+        <li class="layui-nav-item"><a href="">用户</a></li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">其它系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">邮件管理</a></dd>
+            <dd><a href="">消息管理</a></dd>
+            <dd><a href="">授权管理</a></dd>
+          </dl>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            贤心
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="">基本资料</a></dd>
+            <dd><a href="">安全设置</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">退了</a></li>
+      </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">组织管理功能</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;">员工检索</a></dd>
+              <dd><a href="javascript:;">添加员工</a></dd>
+              <dd><a href="javascript:;">添加部门</a></dd>
+              <dd><a href="javascript:;">部门列表</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">公告管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">移动模块</a></dd>
+              <dd><a href="">后台模版</a></dd>
+              <dd><a href="">电商平台</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">文件夹</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">权限角色功能</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">日程管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">邮件功能</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+              <dd><a href="">******</a></dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layui-body">
+      <!-- 内容主体区域 -->
+      <form action="save" method="POST">
+        <div style="padding: 15px;">
+
+          <h4>日程:</h4>
+          <div class="layui-row" style="border: 1px solid aquamarine;border-radius:9px;">
+            <br>
+            <div class="layui-col-xs5" id="xs5">
+              <div class="grid-demo grid-demo-bg1">
+                <div class="control-group">
+                  <label class="control-label" for="inputEmail">标题：</label>
+                  <div class="controls">
+                    <input id="inputEmail" type="text" />
+                  </div>
+                </div>
+
+                <div class="layui-row">
+                  <div class="layui-col-xs5">
+                    <div class="grid-demo grid-demo-bg1">
+                      <div class="layui-inline">
+                        <br>
+                        <label>开始日期:</label>
+                        <div class="layui-input-inline">
+                          <input type="text" class="layui-input" id="test1" placeholder="yyyy">
+                          <br>
+                        </div>
+                        <br>
+                        <label>结束日期</label>
+                        <div class="layui-input-inline">
+                          <input type="text" class="layui-input" id="test2" placeholder="yyyy">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-col-xs1">
+                    <td>&nbsp;</td>
+                  </div>
+                  <div class="layui-col-xs5">
+                    <div class="grid-demo">
+                      <div class="layui-inline">
+                        <br>
+                        <label>开始时间</label>
+                        <div class="layui-input-inline">
+                          <input type="text" class="layui-input" id="test3" placeholder="HH:mm:ss">
+                          <br>
+                        </div>
+                        <br>
+                        <label>结束时间</label>
+                        <div class="layui-input-inline">
+                          <input type="text" class="layui-input" id="test4" placeholder="HH:mm:ss">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+
+              </div>
+             <!-- 文本框 -->
+             <div class="layui-inline">
+              <label class="layui-form-label">文本：</label><br>
+              <div class="layui-input-inline">
+                <textarea id="textarea-text" rows="7" cols="50"></textarea>
+              </div><br>
+            </div>
+              <br>
+            </div>
+            <div class="layui-col-xs1">&nbsp;</div>
+            <div class="layui-col-xs4">
+              <div class="grid-demo">
+                <div class="control-group">
+                  <label class="control-label" for="inputEmail">员工列表</label>
+                  <div class="controls">
+                    <input id="inputEmail" type="text" />
+                    <img src="/jsp/static/img/eye1.png" alt="搜索">
+                  </div>
+                  <div class="layui-col-xs8" id="inputxs8">
+                    <div id="inputxs8-il">
+                      <input type="checkbox" name="title" value="" id="all" onclick="cli('title')">
+                      <label>全选</label>
+                      <br>
+                      <input type="checkbox" name="title">
+                      <label>语文</label>
+                      <br>
+                      <input type="checkbox" name="title">
+                      <label>语文</label>
+                      <br>
+                      <input type="checkbox" name="title">
+                      <label>语文</label>
+                      <br>
+                      <input type="checkbox" name="title">
+                      <label>语文</label>
+                      <br>
+                      <input type="checkbox" name="title">
+                      <label>语文</label>
+                      <br>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-xs6">
+            <div class="grid-demo grid-demo-bg1">
+              &nbsp;
+            </div>
+          </div>
+          <div class="layui-col-xs6">
+            <div class="grid-demo" style="text-align: right;">
+
+              <div class="layui-col-xs3">
+                <div class="grid-demo">
+                  <button class="btn" type="button">保存</button>
+                </div>
+              </div>
+              <div class="layui-col-xs3">
+                <div class="grid-demo">
+                  <button class="btn" type="reset">重置</button>
+                </div>
+              </div>
+              <div class="layui-col-xs3">
+                <div class="grid-demo">
+                  <button class="btn" type="button" onclick="javascript:history.back(-1);">返回</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="layui-footer">
+    <div class="layui-row">
+
+
+      <!-- 底部固定区域 -->
+      © layui.com - 底部固定区域
+    </div>
+  </div>
+  <script src="../jsp/static/layui/layui.js"></script>
+  <script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+      var element = layui.element;
+
+    });
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //年月选择器
+        laydate.render({
+          elem: '#test1'
+          , type: 'month'
+        });
+
+        //年月选择器
+        laydate.render({
+          elem: '#test2'
+          , type: 'month'
+        });
+        //时间选择器
+        laydate.render({
+          elem: '#test3'
+          , type: 'time'
+        });
+
+
+        //时间选择器
+        laydate.render({
+          elem: '#test4'
+          , type: 'time'
+        });
+      });
+    function cli(title) {
+      //获取控制其它复选框的对象obj
+      var collid = document.getElementById("all")
+      //获取需要全选，全不选功能的所有复选框
+      var coll = document.getElementsByName(title)
+      //如果obj被选中，则全选
+      if (collid.checked) {
+        //循环设置所有复选框为选中状态
+        for (var i = 0; i < coll.length; i++)
+          coll[i].checked = true;
+      } else {//取消obj选中状态，则全不选
+        //循环设置所有复选框为未选中状态
+        for (var i = 0; i < coll.length; i++)
+          coll[i].checked = false;
+      }
+    }
+  </script>
+</body>
+
+</html>
